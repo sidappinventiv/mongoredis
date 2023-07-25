@@ -7,28 +7,32 @@ const session = new mongoose.Schema({
     ref: "user",
     required: true
 },
-    location:{ 
-        type:String,
-        required:true
-    },
-    device_type:{
-        type:String,
-        required:true
-    },
-    token:{
+status:
+{
+  type:String
+}
+    // location:{ 
+    //     type:String,
+    //     required:true
+    // },
+    // device_type:{
+    //     type:String,
+    //     required:true
+    // },
+    // token:{
         
-        type:String,
-        required:true
-    },
+    //     type:String,
+    //     required:true
+    // },
 
-  created_at:{
-    type:Date,
-    required:true
-  },
-  updated_at:{
-    type:Date,
-    required:true
-  }
+  // created_at:{
+  //   type:Date,
+  //   required:true
+  // },
+  // updated_at:{
+  //   type:Date,
+  //   required:true
+  // }
     
 });
 

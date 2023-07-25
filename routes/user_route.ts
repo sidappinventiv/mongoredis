@@ -5,6 +5,7 @@ import { loginuser } from '../controller/login';
 import { createpost } from '../controller/post/createpost';
 import { getpost } from '../controller/post/getpost';
 import { count_post } from '../controller/post/countpost';
+import { verifyToken } from '../middleware/verify_token';
 const router = express.Router();
 
 router.get("/getalluser",getalluser);
@@ -24,12 +25,12 @@ router.post("/signup",signup);
  *           schema:
  *             type: object
  *             properties:
- *               email:
+ *               username:
  *                 type: string
  *               password:
  *                 type: string
  *             required:
- *               - email
+ *               - username
  *               - password
  *     responses:
  *       200:
@@ -54,7 +55,7 @@ router.post("/signup",signup);
  *                   type: string
  */
 router.post('/login',loginuser);
-router.post('/createpost',createpost)
+router.post('/createpost',verifyToken,createpost)
 router.get('/getpost',getpost)
 router.get('/countpost',count_post)
 export {router}

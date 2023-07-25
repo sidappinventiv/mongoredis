@@ -7,7 +7,12 @@ import * as bcrypt from 'bcrypt';
 export const signup = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { username:username, email:email, password:password} = req.body;
+        
+        const existingUser = await user_s.findOne({ email });
 
+        if (existingUser) {
+            return res.status(409).json({ error: "Email already exists" });
+        }
         const saltRounds = 8;
         const salt = await bcrypt.genSalt(saltRounds);
 

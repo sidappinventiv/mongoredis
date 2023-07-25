@@ -29,12 +29,12 @@ router.post("/signup", signup_1.signup);
  *           schema:
  *             type: object
  *             properties:
- *               email:
+ *               username:
  *                 type: string
  *               password:
  *                 type: string
  *             required:
- *               - email
+ *               - username
  *               - password
  *     responses:
  *       200:

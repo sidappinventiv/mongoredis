@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.count_post = void 0;
 const post_1 = require("../../models/post");
 const mongoose_1 = __importDefault(require("mongoose"));
-const count_post = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const count_post = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.body;
         const mmatch = {

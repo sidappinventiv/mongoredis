@@ -10,6 +10,12 @@ const swaggerJSdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express')
 
 
+const session = require('express-session');
+const redis = require('redis');
+const connectRedis = require('connect-redis');
+
+const redisClient = redis.createClient();
+
 const options ={
     definition:{
         openapi:'3.0.0',
