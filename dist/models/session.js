@@ -12,26 +12,29 @@ const session = new mongoose_1.default.Schema({
         ref: "user",
         required: true
     },
-    location: {
-        type: String,
-        required: true
-    },
-    device_type: {
-        type: String,
-        required: true
-    },
-    token: {
-        type: String,
-        required: true
-    },
-    created_at: {
-        type: Date,
-        required: true
-    },
-    updated_at: {
-        type: Date,
-        required: true
+    status: {
+        type: String
     }
+    // location:{ 
+    //     type:String,
+    //     required:true
+    // },
+    // device_type:{
+    //     type:String,
+    //     required:true
+    // },
+    // token:{
+    //     type:String,
+    //     required:true
+    // },
+    // created_at:{
+    //   type:Date,
+    //   required:true
+    // },
+    // updated_at:{
+    //   type:Date,
+    //   required:true
+    // }
 });
 const sessionsc = mongoose_1.default.model('session', session);
 exports.sessionsc = sessionsc;

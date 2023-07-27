@@ -40,6 +40,10 @@ const bcrypt = __importStar(require("bcrypt"));
 const signup = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { username: username, email: email, password: password } = req.body;
+        const existingUser = yield user_2.user_s.findOne({ email });
+        if (existingUser) {
+            return res.status(409).json({ error: "Email already exists" });
+        }
         const saltRounds = 8;
         const salt = yield bcrypt.genSalt(saltRounds);
         const hashedPassword = yield bcrypt.hash(password, salt);

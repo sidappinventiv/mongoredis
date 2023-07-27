@@ -8,11 +8,13 @@ import {dbconn} from './database_conn';
 // import swaggerUi from 'swagger-ui-express';
 const swaggerJSdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express')
-
-
 const session = require('express-session');
+import * as path from 'path';
 const redis = require('redis');
 const connectRedis = require('connect-redis');
+import YAML from 'yamljs';
+const swaggerDocument = YAML.load(path.join(__dirname,'./swagger.yaml'));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const redisClient = redis.createClient();
 
@@ -47,5 +49,6 @@ app.listen(process.env.PORT, async()=>{
     console.log(`server listing on ${process.env.PORT}`);
 
 })
-const swaggerspec= swaggerJSdoc(options)
-app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerspec))
+// const swaggerspec= swaggerJSdoc(options)
+// app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerspec))
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

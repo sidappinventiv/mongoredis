@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 const {Schema} = mongoose;
 
+
+interface session extends Document{
+  user_id:mongoose.Schema.Types.ObjectId;
+  status?:String;
+}
 const session = new mongoose.Schema({
    user_id:{
     type: mongoose.Schema.Types.ObjectId,
